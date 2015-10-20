@@ -1,0 +1,28 @@
+{
+  "name": "wavelength",
+  "version": "0.0.0",
+  "description": "Framework for building Alexa skills with Amazon Echo using AWS Lambda",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmarkert/wavelength.git"
+  },
+  "keywords": [
+    "alexa",
+    "lambda",
+    "aws",
+    "amazon",
+    "echo",
+    "sdk",
+    "skill",
+    "alexa skill",
+    "alexa skills kit",
+    "aws lambda"
+  ],
+  "author": "Phillip Markert <phillip@ephisys.com> (http://www.ephisys.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pmarkert/wavelength/issues"
+  },
+  "homepage": "https://github.com/pmarkert/wavelength"
+}
