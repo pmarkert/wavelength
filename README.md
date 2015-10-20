@@ -20,14 +20,18 @@ http://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 Amazon makes it very straight-forward to trigger your lambda function 
 from the Alexa Skill.
 
+The project name of wavelength is because lambda is the symbol for 
+wavelength in physics equations and an echo is the reflection of a sound wave.
+
 # Example
 ```
-var wl = require("wavelength");
+var wavelength = require("wavelength");
 
-var router = module.exports = wl.Router();
+var router = wavelength.Router();
+module.exports = router;
 
 router.launch(function(event) {
-	return wl.Response()
+	return wavelength.Response()
 		.text("Tough decision to make? I'll help you pick. For example, you can ask: 'Should I choose chocolate, or vanilla?'")
 		.reprompt.text("Go ahead, ask me something like: red, or blue");
 });
@@ -35,20 +39,20 @@ router.launch(function(event) {
 router.intent("ChooseIntent", function(params, event) {
 	console.log("Params - " + JSON.stringify(params));
 	if(!params.first || !params.second) {
-		return wl.Response()
+		return wavelength.Response()
 			.text("I didn't understand your choices, please say something like: 'should I choose the red shoes or the black ones'")
 			.reprompt.text("Go ahead, don't be shy.");
 	}
 	var chosen = (Math.random()<0.5) ? params.first : params.second;
 	console.log("Choice was " + chosen);
-	return wl.Response()
+	return wavelength.Response()
 		.text("Between " + params.first + " and " + params.second + " I would choose " + chosen)
 		.end_session(event.session.new)
 		.reprompt.text("Can I help you with any other decisions?");
 });
 
 router.intent("Goodbye", function(params, event) {
-	return wl.Response()
+	return wavelength.Response()
 		.text("Good luck. Let me know how it goes!")
 		.end_session(true);
 });
