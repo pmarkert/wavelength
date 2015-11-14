@@ -1,8 +1,8 @@
-module.exports = function(event, context) {
-	return new Router(event, context);
+module.exports = function() {
+	return new Router();
 }
 
-function Router(event, context) {
+function Router() {
 	var self = this;	
 	self.intents = {};
 	self.applicationId = null;
@@ -63,10 +63,12 @@ function Router(event, context) {
 			}
 			if(self.launch_handler.length === 2) {
 				return handler(event, function(response) {
+					// TODO - Handle shortcut cases where the response is a string and return as text (ending session)
 					context.succeed(response.render());
 				});
 			}
 			else {
+				// TODO - Handle shortcut cases where the response is a string and return as text (ending session)
 				return context.succeed(self.launch_handler(event).render());
 			}
 		}
@@ -81,11 +83,13 @@ function Router(event, context) {
 				return context.fail("Invalid Intent");
 			}
 			if(handler.length === 3) {
+				// TODO - Handle shortcut cases where the response is a string and return as text (ending session)
 				return handler(params, event, function(response) {
 					context.succeed(response.render());
 				});
 			}
 			else {
+				// TODO - Handle shortcut cases where the response is a string and return as text (ending session)
 				return context.succeed(handler(params, event).render());
 			}
 		}

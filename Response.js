@@ -24,6 +24,7 @@ function Response(event) {
 		text : reprompt_text,
 		ssml : reprompt_ssml
 	};
+	self.should_end_session = end_session;
 	self.end_session = end_session;
 	self.session = set_session;
 	self.render = render;
@@ -35,7 +36,7 @@ function Response(event) {
 			throw { message: "cannot append text to existing response of different type" };
 		}
 		self.response_type = "PlainText"; if(self.response_text) {
-			self.response_text += "\n";
+			self.response_text += " ";
 		}
 		self.response_text += message;
 		return self;
@@ -46,7 +47,7 @@ function Response(event) {
 			throw { message: "cannot append ssml to existing response of different type" };
 		}
 		if(self.response_text) {
-			self.response_text += "\n";
+			self.response_text += " ";
 		}
 		self.response_type = "SSML";
 		self.response_text += message;
@@ -58,7 +59,7 @@ function Response(event) {
 			throw { message: "cannot set simple card with existing card of different type" };
 		}
 		if(self.card_text) {
-			self.card_text += "\n";
+			self.card_text += " ";
 		}
 		self.card_type = "Simple";
 		self.card_text += content;
@@ -82,7 +83,7 @@ function Response(event) {
 		}
 		self.reprompt_type = "PlainText";
 		if(self.reprompt_text) {
-			self.reprompt_text += "\n";
+			self.reprompt_text += " ";
 		}
 		self.reprompt_text += message;
 		return self;
@@ -94,7 +95,7 @@ function Response(event) {
 		}
 		self.reprompt_type = "SSML";
 		if(self.reprompt_text) {
-			self.reprompt_text += "\n";
+			self.reprompt_text += " ";
 		}
 		self.reprompt_text += message;
 		return self;
