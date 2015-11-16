@@ -1,6 +1,6 @@
 {
   "name": "wavelength",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Framework for building Alexa skills with Amazon Echo using AWS Lambda",
   "main": "index.js",
   "repository": {
