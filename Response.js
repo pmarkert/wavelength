@@ -24,7 +24,6 @@ function Response(event) {
 		text : reprompt_text,
 		ssml : reprompt_ssml
 	};
-	self.should_end_session = end_session;
 	self.end_session = end_session;
 	self.session = set_session;
 	self.render = render;
