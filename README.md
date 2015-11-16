@@ -88,13 +88,13 @@ router.intent("intent_name", function(params, event, callback) { // Asynchronous
    callback(wl.Response(event).text("response"))
 });
 
-router.session_started(function(event, context, callback) { // session_started hook
+router.session_started = function(event, context, callback) { // session_started hook
   callback();
-});
+};
 
-router.session_ended(function(event, context, callback) { // session_ended hook
+router.session_ended = function(event, context, callback) { // session_ended hook
   callback();
-});
+};
 
 // Set router.applicationId to your application's ID if you want to verify the applicationId on each request.
 ```
