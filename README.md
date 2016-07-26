@@ -24,7 +24,7 @@ The project name of wavelength is because lambda is the symbol for
 wavelength in physics equations and an echo is the reflection of a sound wave.
 
 # Example
-```
+```node
 var wavelength = require("wavelength");
 
 var router = wavelength.Router();
@@ -67,7 +67,7 @@ router.intent("Goodbye", function(params, event) {
 6. Session attribute management
 7. Build responses with text/ssml, including reprompts, cards, and options.
 
-```
+```node
 // Usage:
 var wl = require("wavelength");
 var router = wl.Router();
